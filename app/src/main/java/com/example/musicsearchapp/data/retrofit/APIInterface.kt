@@ -1,8 +1,7 @@
 package com.example.rickmortyapi.utils.retrofit
 
 import com.example.musicsearchapp.BuildConfig
-import com.example.musicsearchapp.models.TrackResponse
-import com.google.gson.internal.GsonBuildConfig
+import com.example.musicsearchapp.model.TrackResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

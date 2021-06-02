@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MusicSearchApp</string>
+    <string name="search_hint">search your music</string>
+    <string name="search">search</string>
+    <string name="listeners">Listeners: %1$s</string>
+    <string name="artist">Artist: %1$s</string>
+    <string name="title">Title: %1$s</string>
+    <string name="descending">descending</string>
+    <string name="upward">upward</string>
+    <string name="order">order by: </string>
 </resources>
