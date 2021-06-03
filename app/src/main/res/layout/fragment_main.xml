@@ -44,7 +44,7 @@
 
             <Button
                 android:id="@+id/btn_search"
-                android:onClick="@{() -> mainViewModel.onClickActionGridAdapter()}"
+                android:onClick="@{() -> mainViewModel.search()}"
                 android:layout_marginStart="@dimen/dp_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,6 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            app:hideIfSaved="@{mainViewModel.hideButton}"
+            android:visibility="gone"
             android:weightSum="1"
             android:orientation="horizontal">
 
@@ -67,7 +69,7 @@
 
             <Button
                 android:id="@+id/btn_up"
-                android:onClick="@{() -> mainViewModel.onClickActionGridAdapter()}"
+                android:onClick="@{() -> mainViewModel.sortList(adapter, 1)}"
                 android:layout_marginStart="@dimen/dp_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +79,7 @@
 
             <Button
                 android:id="@+id/btn_down"
-                android:onClick="@{() -> mainViewModel.onClickActionGridAdapter()}"
+                android:onClick="@{() -> mainViewModel.sortList(adapter, 0)}"
                 android:layout_marginStart="@dimen/dp_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +92,7 @@
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:hideIfSaved="@{mainViewModel.hide}"
+            app:hideIfSaved="@{mainViewModel.hideProgress}"
             android:layout_gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView

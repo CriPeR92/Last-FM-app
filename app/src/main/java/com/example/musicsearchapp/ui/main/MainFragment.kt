@@ -40,44 +40,21 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         vm.tracksResponse.observe(binding.lifecycleOwner!!, Observer {
-            vm.hide.value = 0
+            vm.hideProgress.value = 0
+            vm.hideButton.value = 1
             val imm =
                 requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0) // hide
-
-//                    SessionData.isLoading = false
-//            if (::adapter.isInitialized) {
-//                adapter.notifyDataSetChanged()
-//            } else {
+            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
             adapter = MainAdapter(
                 this,
                 vm.tracksResponse.value?.results?.trackmatches?.track!!
             )
             binding.adapter = adapter
-//            }
         })
-//
-        vm.uiEventValue.observe(binding.lifecycleOwner!!, Observer {
-            when (it) {
-//                1 -> {
-//                    val bundle = Bundle()
-//                    bundle.putString("personage", Gson().toJson(vm.character.value))
-//                    val fragment = CharacterFragment()
-//                    fragment.arguments = bundle
-//                    this.activity?.supportFragmentManager?.beginTransaction()
-//                        ?.add(R.id.container, fragment)
-//                        ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                        ?.addToBackStack(null)
-//                        ?.commit()
-//                }
-
-            }
-        })
-//
         adapter = MainAdapter(this, ArrayList<Track>())
         binding.adapter = adapter
 
     }
+
 }

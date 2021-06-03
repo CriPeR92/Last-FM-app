@@ -1,4 +1,4 @@
-package com.example.rickmortyapi.utils.retrofit
+package com.example.musicsearchapp.data.retrofit
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

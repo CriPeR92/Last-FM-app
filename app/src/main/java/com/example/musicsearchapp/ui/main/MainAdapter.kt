@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.musicsearchapp.databinding.ItemTrackBinding
 import com.example.musicsearchapp.model.Track
 
-class MainAdapter (var fragment: MainFragment, var list: ArrayList<Track>) : RecyclerView.Adapter<MainAdapter.GridCharacterViewHolder>(){
+class MainAdapter(var fragment: MainFragment, var list: ArrayList<Track>) :
+    RecyclerView.Adapter<MainAdapter.GridCharacterViewHolder>() {
+
     private lateinit var vm: MainViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridCharacterViewHolder {
@@ -27,5 +29,19 @@ class MainAdapter (var fragment: MainFragment, var list: ArrayList<Track>) : Rec
         return list.size
     }
 
-    class GridCharacterViewHolder(val binding: ItemTrackBinding) : RecyclerView.ViewHolder(binding.root)
+    fun orderList(type: Int) {
+        if (type == 1) {
+            list.sortWith { item1, item2 ->
+                if (item1.listeners!!.toInt() > item2.listeners!!.toInt()) -1 else if (item1.listeners!!.toInt() < item2.listeners!!.toInt()) 1 else 0
+            }
+        } else {
+            list.sortWith { item1, item2 ->
+                if (item1.listeners!!.toInt() < item2.listeners!!.toInt()) -1 else if (item1.listeners!!.toInt() > item2.listeners!!.toInt()) 1 else 0
+            }
+        }
+        this.notifyDataSetChanged()
+    }
+
+    class GridCharacterViewHolder(val binding: ItemTrackBinding) :
+        RecyclerView.ViewHolder(binding.root)
 }

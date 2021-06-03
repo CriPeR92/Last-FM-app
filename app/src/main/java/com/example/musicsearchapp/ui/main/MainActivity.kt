@@ -1,8 +1,6 @@
 package com.example.musicsearchapp.ui.main
 
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import com.example.musicsearchapp.R
 import com.example.musicsearchapp.base.BaseActivity
 import com.example.musicsearchapp.databinding.ActivityMainBinding

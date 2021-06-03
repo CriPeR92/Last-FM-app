@@ -25,16 +25,16 @@
             android:text="@{@string/title(track.name)}"/>
 
         <TextView
-            android:id="@+id/tv_listeners"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@string/listeners(track.listeners)}"/>
-
-        <TextView
             android:id="@+id/tv_artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{@string/artist(track.artist)}"/>
+
+        <TextView
+            android:id="@+id/tv_listeners"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/listeners(track.listeners)}"/>
 
     </LinearLayout>
 </layout>
