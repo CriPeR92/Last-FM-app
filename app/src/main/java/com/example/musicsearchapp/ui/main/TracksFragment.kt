@@ -14,10 +14,13 @@ import com.example.musicsearchapp.R
 import com.example.musicsearchapp.databinding.FragmentMainBindingImpl
 import com.example.musicsearchapp.model.Track
 
+/**
+ * Main Fragment of the APP, where is show the result list and is recieved the input to search tracks
+ */
 
-class MainFragment : Fragment() {
+class TracksFragment : Fragment() {
 
-    lateinit var adapter: MainAdapter
+    lateinit var adapter: TracksAdapter
     lateinit var binding: FragmentMainBindingImpl
     private lateinit var vm: MainViewModel
 
@@ -40,21 +43,22 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /**
+         * Observer to know when the tracks are recieved, hide SoftKeyboard and the recyclerView is updated
+         */
         vm.tracksResponse.observe(binding.lifecycleOwner!!, Observer {
             vm.hideProgress.value = 0
             vm.hideButton.value = 1
             val imm =
                 requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-            adapter = MainAdapter(
+            adapter = TracksAdapter(
                 this,
                 vm.tracksResponse.value?.results?.trackmatches?.track!!
             )
             binding.adapter = adapter
         })
-        adapter = MainAdapter(this, ArrayList<Track>())
+        adapter = TracksAdapter(this, ArrayList<Track>())
         binding.adapter = adapter
-
     }
-
 }

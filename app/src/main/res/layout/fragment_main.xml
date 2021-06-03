@@ -10,7 +10,7 @@
 
         <variable
             name="adapter"
-            type="com.example.musicsearchapp.ui.main.MainAdapter" />
+            type="com.example.musicsearchapp.ui.main.TracksAdapter" />
     </data>
 
     <LinearLayout
@@ -34,10 +34,11 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/search"
+                android:id="@+id/edt_search"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
+                android:maxLines="1"
                 android:text="@={mainViewModel.search}"
                 android:hint="@string/search_hint"
                 android:autofillHints="" />
@@ -53,6 +54,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

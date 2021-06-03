@@ -8,6 +8,12 @@ import retrofit2.http.Query
 
 interface APIInterface {
 
+    /**
+     * parameters
+     * track = Name of the track to search
+     * limit = could be change to be dynamic or we could use an infinite scroll in the recyclerView
+     * method, api_key and format are already defined by the api
+     */
     @GET("2.0/")
     fun getTracks(
         @Query("method") method: String = "track.search",

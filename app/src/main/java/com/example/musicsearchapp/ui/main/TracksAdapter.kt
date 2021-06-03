@@ -7,20 +7,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.musicsearchapp.databinding.ItemTrackBinding
 import com.example.musicsearchapp.model.Track
 
-class MainAdapter(var fragment: MainFragment, var list: ArrayList<Track>) :
-    RecyclerView.Adapter<MainAdapter.GridCharacterViewHolder>() {
+/**
+ * Adapter of the list of tracks
+ */
+
+class TracksAdapter(var fragment: TracksFragment, var list: ArrayList<Track>) :
+    RecyclerView.Adapter<TracksAdapter.TracksAdapterViewHolder>() {
 
     private lateinit var vm: MainViewModel
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridCharacterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TracksAdapterViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemTrackBinding.inflate(layoutInflater)
         vm = ViewModelProvider(fragment).get(MainViewModel::class.java)
-
-        return GridCharacterViewHolder(binding)
+        return TracksAdapterViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: GridCharacterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TracksAdapterViewHolder, position: Int) {
         holder.binding.mainViewModel = vm
         holder.binding.track = list[position]
     }
@@ -29,6 +32,9 @@ class MainAdapter(var fragment: MainFragment, var list: ArrayList<Track>) :
         return list.size
     }
 
+    /**
+     * Function to order the list using listeners
+     */
     fun orderList(type: Int) {
         if (type == 1) {
             list.sortWith { item1, item2 ->
@@ -42,6 +48,6 @@ class MainAdapter(var fragment: MainFragment, var list: ArrayList<Track>) :
         this.notifyDataSetChanged()
     }
 
-    class GridCharacterViewHolder(val binding: ItemTrackBinding) :
+    class TracksAdapterViewHolder(val binding: ItemTrackBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

@@ -5,13 +5,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+private const val BASE_URL = "https://ws.audioscrobbler.com/"
 
 class APIClient {
 
     companion object {
-        private const val BASE_URL = "https://ws.audioscrobbler.com/"
         var retrofit: Retrofit? = null
-
         fun getClient(): Retrofit? {
             if (retrofit == null) {
                 val interceptor = HttpLoggingInterceptor()

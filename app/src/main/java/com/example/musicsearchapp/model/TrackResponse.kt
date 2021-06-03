@@ -3,6 +3,9 @@ package com.example.musicsearchapp.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+/**
+ * models to get the API response
+ */
 @Parcelize
 data class TrackResponse(var results: TrackMatches) : Parcelable
 

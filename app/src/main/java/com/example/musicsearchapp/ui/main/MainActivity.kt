@@ -5,6 +5,10 @@ import com.example.musicsearchapp.R
 import com.example.musicsearchapp.base.BaseActivity
 import com.example.musicsearchapp.databinding.ActivityMainBinding
 
+/**
+ * MainActivity: only contains the fragment
+ */
+
 class MainActivity : BaseActivity() {
 
     private val binding: ActivityMainBinding by binding(R.layout.activity_main)
@@ -16,7 +20,7 @@ class MainActivity : BaseActivity() {
             lifecycleOwner = this@MainActivity
         }
 
-        val fragment = MainFragment()
+        val fragment = TracksFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()

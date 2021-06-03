@@ -11,15 +11,18 @@ import retrofit2.Response
 
 class TracksRepository {
 
-    var apiInterface: APIInterface? = null
-
+    /**
+     * Function that recieves
+     * searchTrack: String = Input to search
+     * trackResponse: MutableLiveData = To observe when the service responds
+     */
     fun getTracks(
         searchTrack: String,
         trackResponse: MutableLiveData<TrackResponse>
     ) {
 
         if (searchTrack.isNotEmpty()) {
-            apiInterface = APIClient.getClient()?.create(APIInterface::class.java)
+            val apiInterface = APIClient.getClient()?.create(APIInterface::class.java)
             val call = apiInterface!!.getTracks(track = searchTrack)
             call.enqueue(object : Callback<TrackResponse> {
                 @Override
